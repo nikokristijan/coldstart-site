@@ -45,7 +45,7 @@ export function Hero() {
                 <a href={CHECKOUT.coldStart}>{CTA.primaryWithPrice}</a>
               </Button>
               <Button asChild variant="ghost" size="lg">
-                <Link href="/#free-kit">Try the Free Starter Kit</Link>
+                <Link href="/#whats-inside">See What&apos;s Inside</Link>
               </Button>
             </div>
           </Reveal>

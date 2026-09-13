@@ -12,17 +12,26 @@ import {
 const ANCHORS = [
   {
     label: "Do It Yourself",
-    detail: "Months of trial and error, guessing what to send and cold DMs that go nowhere.",
+    points: [
+      "Guess what to send",
+      "Spend months testing",
+      "No repeatable process",
+      "Constantly search for advice",
+    ],
     icon: X,
   },
   {
     label: "1:1 Coaching",
-    detail: "Real guidance, but priced for people already making money from clients.",
+    points: [
+      "Real, personalized guidance",
+      "Priced for people already making money from clients",
+      "Usually billed per session or per month",
+    ],
     icon: X,
   },
   {
     label: "Cold Start",
-    detail: "One system: the scripts, the templates, and the day-by-day plan to run it.",
+    points: ["A clear system", "Scripts for every stage", "A follow-up plan", "An offer framework", "A day-by-day plan to run it"],
     icon: Check,
     highlight: true,
   },
@@ -41,9 +50,10 @@ export function Pricing() {
               Here&apos;s Exactly What You Get.
             </h2>
             <p className="mt-3 text-[15.5px] text-[var(--ink-dim)]">
-              The goal isn&apos;t to collect another course — it&apos;s to build a
-              repeatable client pipeline. Here&apos;s everything Cold Start hands you to
-              do that, and what it would cost to piece together on your own.
+              The goal isn&apos;t to collect another course — it&apos;s a complete
+              client-acquisition system, for a relatively small monthly investment.
+              Here&apos;s everything Cold Start hands you, and what it would cost to
+              piece together on your own.
             </p>
           </div>
         </Reveal>
@@ -73,9 +83,18 @@ export function Pricing() {
                     {a.label}
                   </span>
                 </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-[var(--ink-dim)]">
-                  {a.detail}
-                </p>
+                <ul className="mt-3 space-y-1.5">
+                  {a.points.map((point) => (
+                    <li
+                      key={point}
+                      className={`text-[13px] leading-relaxed ${
+                        a.highlight ? "text-[var(--ink)]" : "text-[var(--ink-dim)]"
+                      }`}
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -138,7 +157,7 @@ export function Pricing() {
 
             <div className="px-8 py-8 text-center">
               <span className="inline-block rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--gold)]">
-                20% off ${PRICE.coldStartWasMonthly} — today only
+                20% off the regular ${PRICE.coldStartWasMonthly}/mo price
               </span>
               <div className="mt-4 flex items-baseline justify-center gap-1 font-serif text-[44px] font-medium text-[var(--cream)]">
                 <span className="text-[20px] text-[var(--ink-dim)]">$</span>
@@ -148,7 +167,7 @@ export function Pricing() {
                 </span>
               </div>
               <p className="mt-2 text-[13px] text-[var(--ink-dim)]">
-                Cancel anytime. No long-term contract.
+                Billed monthly · Cancel anytime · No long-term contract
               </p>
 
               <Button asChild size="lg" className="mt-6 w-full">
@@ -156,8 +175,10 @@ export function Pricing() {
               </Button>
 
               <p className="mx-auto mt-5 max-w-sm text-[13px] leading-relaxed text-[var(--ink-dim)]">
-                If Cold Start helps you land even one client, it can pay for itself
-                many times over.
+                One client can cover the cost of Cold Start many times over. You
+                don&apos;t need dozens of clients for the system to make sense — just a
+                repeatable way to start conversations that can turn into
+                opportunities.
               </p>
             </div>
           </div>

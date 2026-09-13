@@ -4,6 +4,7 @@ import { Problem } from "@/components/sections/problem";
 import { WhatsInside } from "@/components/sections/whats-inside";
 import { FreeKit } from "@/components/sections/free-kit";
 import { CompareTable } from "@/components/sections/compare-table";
+import { Objections } from "@/components/sections/objections";
 import { Pricing } from "@/components/sections/pricing";
 import { AiPack } from "@/components/sections/ai-pack";
 import { AffiliateTeaser } from "@/components/sections/affiliate-teaser";
@@ -25,13 +26,14 @@ export default function Home() {
       <WhatsInside />
       <FreeKit />
       <CompareTable />
+      <Objections />
       <Pricing />
       <AiPack />
       <AffiliateTeaser />
       <FaqPreview />
       <FinalCta
-        heading="Send Your First Message Today"
-        sub="Start free, or get the full system now — either way, you can send something today."
+        heading="Stop Waiting for Clients to Find You."
+        sub="Build a pipeline you control — the scripts, the follow-ups, and the day-by-day plan to run them."
       />
     </main>
   );

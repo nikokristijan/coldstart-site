@@ -37,6 +37,9 @@ export function FinalCta({
               <a href={CHECKOUT.aiPack}>Add the AI Pack</a>
             </Button>
           </div>
+          <p className="mt-5 text-[12.5px] uppercase tracking-wide text-[var(--ink-dim)]">
+            Cancel anytime · Instant access · No long-term contract
+          </p>
         </Reveal>
       </div>
     </section>

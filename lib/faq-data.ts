@@ -20,6 +20,14 @@ export const COURSE_FAQS = [
     a: "Both, plus phone and in-person outreach templates. You'll get scripts for email, Instagram/LinkedIn DMs, and short scripts for calls or in-person conversations.",
   },
   {
+    q: "Is this a course or a toolkit?",
+    a: "Both — Cold Start pairs a full course that explains the system with the actual scripts, templates, and tracker you use to run it. You're not just given theory, and you're not just handed a script pack with no context.",
+  },
+  {
+    q: "How does access work once I buy?",
+    a: "Everything is delivered instantly through Whop. As soon as you subscribe, you get access to the full course, the Script Vault, the 30-day action plan, and every template inside it — no waiting, nothing separate to track down.",
+  },
+  {
     q: "Do I need to buy any tools or software?",
     a: "No paid tools are required. The course shows you how to track outreach with a simple free spreadsheet — no CRM subscription needed.",
   },
@@ -61,8 +69,16 @@ export const AI_PACK_FAQS = [
 ] as const;
 
 // Short preview subset shown on the home page, linking out to the full FAQ.
+// Referenced by question text (not index) so inserting/reordering FAQs above
+// can never silently swap in the wrong preview question.
+function findFaq(question: string) {
+  const match = COURSE_FAQS.find((item) => item.q === question);
+  if (!match) throw new Error(`FAQ preview: question not found — "${question}"`);
+  return match;
+}
+
 export const HOME_FAQ_PREVIEW = [
-  COURSE_FAQS[0],
-  COURSE_FAQS[1],
-  COURSE_FAQS[7],
+  findFaq("Do I need any prior outreach experience?"),
+  findFaq("What if I don't have a portfolio or testimonials yet?"),
+  findFaq("Is this a subscription? Can I cancel?"),
 ] as const;
