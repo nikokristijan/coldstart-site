@@ -1,9 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import {
   CHECKOUT,
-  CTA,
   PRICE,
   VALUE_STACK,
   VALUE_STACK_TOTAL,
@@ -37,7 +39,53 @@ const ANCHORS = [
   },
 ];
 
+type PlanKey = "monthly" | "yearly" | "lifetime";
+
+const PLANS: Record<
+  PlanKey,
+  {
+    label: string;
+    checkout: string;
+    badge?: string;
+    priceWhole: string;
+    priceSuffix: string;
+    subline: string;
+    cta: string;
+  }
+> = {
+  monthly: {
+    label: "Monthly",
+    checkout: CHECKOUT.coldStart,
+    badge: `33% off the regular $${PRICE.coldStartWasMonthly}/mo price`,
+    priceWhole: `${PRICE.coldStartMonthly}`,
+    priceSuffix: "/mo",
+    subline: "Billed monthly · Cancel anytime · No long-term contract",
+    cta: `Get Cold Start – $${PRICE.coldStartMonthly}/mo`,
+  },
+  yearly: {
+    label: "Yearly",
+    checkout: CHECKOUT.coldStartYearly,
+    badge: "Best value — 2 months free vs. monthly",
+    priceWhole: `${PRICE.coldStartYearly}`,
+    priceSuffix: "/yr",
+    subline: `Works out to ~$${PRICE.coldStartYearlyEffectiveMonthly}/mo · Billed once a year · Cancel anytime`,
+    cta: `Get Cold Start – $${PRICE.coldStartYearly}/yr`,
+  },
+  lifetime: {
+    label: "Lifetime",
+    checkout: CHECKOUT.coldStartLifetime,
+    badge: "Pay once, keep it forever",
+    priceWhole: `${PRICE.coldStartLifetime}`,
+    priceSuffix: " once",
+    subline: "One-time payment · No recurring charge · Yours for good",
+    cta: `Get Lifetime Access – $${PRICE.coldStartLifetime}`,
+  },
+};
+
 export function Pricing() {
+  const [plan, setPlan] = useState<PlanKey>("monthly");
+  const active = PLANS[plan];
+
   return (
     <section id="pricing" className="border-b border-[var(--line)]">
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
@@ -51,9 +99,9 @@ export function Pricing() {
             </h2>
             <p className="mt-3 text-[15.5px] text-[var(--ink-dim)]">
               The goal isn&apos;t to collect another course — it&apos;s a complete
-              client-acquisition system, for a relatively small monthly investment.
-              Here&apos;s everything Cold Start hands you, and what it would cost to
-              piece together on your own.
+              client-acquisition system, including the AI Personalization Pack,
+              bundled in at every plan. Here&apos;s everything Cold Start hands you,
+              and what it would cost to piece together on your own.
             </p>
           </div>
         </Reveal>
@@ -156,22 +204,41 @@ export function Pricing() {
             </div>
 
             <div className="px-8 py-8 text-center">
-              <span className="inline-block rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--gold)]">
-                20% off the regular ${PRICE.coldStartWasMonthly}/mo price
-              </span>
+              {/* Plan picker */}
+              <div className="mx-auto flex max-w-sm gap-1.5 rounded-full border border-[var(--line)] bg-[var(--navy-2)] p-1">
+                {(Object.keys(PLANS) as PlanKey[]).map((key) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setPlan(key)}
+                    className={`flex-1 rounded-full px-3 py-2 text-[13px] font-medium transition-colors ${
+                      plan === key
+                        ? "bg-[var(--gold)] text-[var(--navy-1)]"
+                        : "text-[var(--ink-dim)] hover:text-[var(--cream)]"
+                    }`}
+                  >
+                    {PLANS[key].label}
+                  </button>
+                ))}
+              </div>
+
+              {active.badge && (
+                <span className="mt-5 inline-block rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--gold)]">
+                  {active.badge}
+                </span>
+              )}
+
               <div className="mt-4 flex items-baseline justify-center gap-1 font-serif text-[44px] font-medium text-[var(--cream)]">
                 <span className="text-[20px] text-[var(--ink-dim)]">$</span>
-                <span>{PRICE.coldStartMonthly}</span>
+                <span>{active.priceWhole}</span>
                 <span className="text-[16px] font-sans font-normal text-[var(--ink-dim)]">
-                  /mo
+                  {active.priceSuffix}
                 </span>
               </div>
-              <p className="mt-2 text-[13px] text-[var(--ink-dim)]">
-                Billed monthly · Cancel anytime · No long-term contract
-              </p>
+              <p className="mt-2 text-[13px] text-[var(--ink-dim)]">{active.subline}</p>
 
               <Button asChild size="lg" className="mt-6 w-full">
-                <a href={CHECKOUT.coldStart}>{CTA.primaryWithPrice}</a>
+                <a href={active.checkout}>{active.cta}</a>
               </Button>
 
               <p className="mx-auto mt-5 max-w-sm text-[13px] leading-relaxed text-[var(--ink-dim)]">

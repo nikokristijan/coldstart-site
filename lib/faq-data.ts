@@ -37,7 +37,7 @@ export const COURSE_FAQS = [
   },
   {
     q: "Is this a subscription? Can I cancel?",
-    a: "Yes, it's $3.99/mo (currently 20% off the regular $4.99), billed monthly. Cancel anytime from your Whop account and you won't be charged again — no long-term contract.",
+    a: "You pick how you pay: $9.99/mo (33% off the regular $14.99), $59/year (works out to about $4.92/mo), or a $129 one-time lifetime payment with no recurring charge. The monthly and yearly plans can be cancelled anytime from your Whop account — no long-term contract. The AI Personalization Pack is included at every plan.",
   },
   {
     q: "What if it doesn't work for me?",

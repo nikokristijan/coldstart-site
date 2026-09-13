@@ -4,6 +4,8 @@
 
 export const CHECKOUT = {
   coldStart: "https://whop.com/checkout/plan_pRNLYc1lMyvNd",
+  coldStartYearly: "https://whop.com/checkout/plan_JcX9LIpSjtp2p",
+  coldStartLifetime: "https://whop.com/checkout/plan_QYMxUc5nPB6aJ",
   starterKit: "https://whop.com/checkout/plan_fEh3AGsrGbseE",
   aiPack: "https://whop.com/checkout/plan_RdBhO66V1ghYu",
   affiliateApply: "https://whop.com/cold-start-33b7/affiliates",
@@ -11,8 +13,11 @@ export const CHECKOUT = {
 } as const;
 
 export const PRICE = {
-  coldStartMonthly: 3.99,
-  coldStartWasMonthly: 4.99,
+  coldStartMonthly: 9.99,
+  coldStartWasMonthly: 14.99,
+  coldStartYearly: 59,
+  coldStartYearlyEffectiveMonthly: 4.92,
+  coldStartLifetime: 129,
   starterKitMonthly: 1.99,
   aiPackMonthly: 2.99,
 } as const;
@@ -69,6 +74,12 @@ export const VALUE_STACK = [
     label: "Zero-Proof Offer Framework",
     detail: "How to package your offer and land a first client with no portfolio or testimonials",
     value: 19,
+    bonus: true,
+  },
+  {
+    label: "AI Personalization Pack",
+    detail: "8 ready-to-use AI prompts that turn any script into a message that sounds researched, not copy-pasted — sold on its own for $2.99/mo",
+    value: 25,
     bonus: true,
   },
 ] as const;
