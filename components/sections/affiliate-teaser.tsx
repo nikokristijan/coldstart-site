@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
+import { TrackedLink } from "@/components/tracked-link";
 
 export function AffiliateTeaser() {
   return (
@@ -22,7 +22,9 @@ export function AffiliateTeaser() {
               automatically through Whop. No minimum audience, 30-day cookie window.
             </p>
             <Button asChild variant="gold" className="mt-6">
-              <Link href="/affiliate">Become an Affiliate</Link>
+              <TrackedLink href="/affiliate" event="cta_click" eventProps={{ location: "affiliate_teaser" }}>
+                Become an Affiliate
+              </TrackedLink>
             </Button>
           </div>
         </Reveal>

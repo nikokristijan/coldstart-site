@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { CHECKOUT, PRICE } from "@/lib/site-config";
+import { TrackedAnchor } from "@/components/tracked-link";
 
 export function FreeKit() {
   return (
@@ -23,7 +24,9 @@ export function FreeKit() {
               </p>
             </div>
             <Button asChild variant="ghost" className="shrink-0">
-              <a href={CHECKOUT.starterKit}>Start Free Trial</a>
+              <TrackedAnchor href={CHECKOUT.starterKit} event="cta_click" eventProps={{ location: "free_kit" }}>
+                Start Free Trial
+              </TrackedAnchor>
             </Button>
           </div>
         </Reveal>

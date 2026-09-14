@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CHECKOUT, CTA } from "@/lib/site-config";
+import { trackEvent } from "@/lib/track";
 
 const LINKS = [
   { href: "/#whats-inside", label: "What's Inside" },
@@ -42,7 +43,9 @@ export function MobileNav() {
               </Link>
             ))}
             <Button asChild className="mt-2 w-full">
-              <a href={CHECKOUT.coldStart}>{CTA.primary}</a>
+              <a href={CHECKOUT.coldStart} onClick={() => trackEvent("cta_click", { location: "mobile_nav" })}>
+                {CTA.primary}
+              </a>
             </Button>
           </nav>
         </div>

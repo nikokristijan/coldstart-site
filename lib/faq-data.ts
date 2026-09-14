@@ -47,6 +47,10 @@ export const COURSE_FAQS = [
     q: "Is the Starter Kit really free?",
     a: "It's free for the first 3 days, then $1.99/mo if you don't cancel. You can cancel anytime from your Whop account, including before the trial ends, and you won't be charged.",
   },
+  {
+    q: "Can't I just use ChatGPT instead of buying this?",
+    a: "ChatGPT can help you write a message once you already know who to send it to and what to say. It won't hand you a prospect list, a 30-day plan, an offer framework, or a way to handle objections — that's the system Cold Start gives you. The included AI Personalization Pack is specifically for using AI to personalize the scripts, so the two work together rather than compete.",
+  },
 ] as const;
 
 export const AI_PACK_FAQS = [

@@ -5,6 +5,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AnalyticsPageview } from "@/components/analytics-pageview";
+import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site-config";
 
 // Self-hosted (not next/font/google) — this network can't reach
@@ -57,6 +58,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 whop.setScope("biz_85IV8HsOvyNE5k");
 whop.track("page");`}
         </Script>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: SITE.name,
+            url: SITE.url,
+            description: SITE.description,
+          }}
+        />
         <AnalyticsPageview />
         <SiteHeader />
         {children}

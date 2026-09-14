@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { CHECKOUT, PRICE } from "@/lib/site-config";
+import { TrackedAnchor } from "@/components/tracked-link";
 
 export function AiPack() {
   return (
@@ -34,7 +35,9 @@ export function AiPack() {
                 Free with Cold Start · or free for 3 days on its own
               </p>
               <Button asChild variant="teal" className="mt-4">
-                <a href={CHECKOUT.aiPack}>Try the AI Pack Free</a>
+                <TrackedAnchor href={CHECKOUT.aiPack} event="cta_click" eventProps={{ location: "ai_pack" }}>
+                  Try the AI Pack Free
+                </TrackedAnchor>
               </Button>
             </div>
           </div>

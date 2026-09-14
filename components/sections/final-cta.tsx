@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { CHECKOUT, CTA } from "@/lib/site-config";
+import { TrackedAnchor, TrackedLink } from "@/components/tracked-link";
 
 export function FinalCta({
   eyebrow = "Ready?",
@@ -28,13 +28,31 @@ export function FinalCta({
           )}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="ghost">
-              <Link href="/#free-kit">Free Starter Kit</Link>
+              <TrackedLink
+                href="/#free-kit"
+                event="cta_click"
+                eventProps={{ location: "final_cta_free_kit" }}
+              >
+                Free Starter Kit
+              </TrackedLink>
             </Button>
             <Button asChild>
-              <a href={CHECKOUT.coldStart}>{CTA.primaryWithPrice}</a>
+              <TrackedAnchor
+                href={CHECKOUT.coldStart}
+                event="cta_click"
+                eventProps={{ location: "final_cta_main" }}
+              >
+                {CTA.primaryWithPrice}
+              </TrackedAnchor>
             </Button>
             <Button asChild variant="teal">
-              <a href={CHECKOUT.aiPack}>Add the AI Pack</a>
+              <TrackedAnchor
+                href={CHECKOUT.aiPack}
+                event="cta_click"
+                eventProps={{ location: "final_cta_ai_pack" }}
+              >
+                Add the AI Pack
+              </TrackedAnchor>
             </Button>
           </div>
           <p className="mt-5 text-[12.5px] uppercase tracking-wide text-[var(--ink-dim)]">

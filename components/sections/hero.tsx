@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { ProductStack } from "@/components/product-stack";
 import { CHECKOUT, CTA } from "@/lib/site-config";
+import { TrackedAnchor } from "@/components/tracked-link";
 
 const FACTS = [
   { value: "11", label: "modules" },
@@ -42,7 +43,9 @@ export function Hero() {
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={CHECKOUT.coldStart}>{CTA.primaryWithPrice}</a>
+                <TrackedAnchor href={CHECKOUT.coldStart} event="cta_click" eventProps={{ location: "hero" }}>
+                  {CTA.primaryWithPrice}
+                </TrackedAnchor>
               </Button>
               <Button asChild variant="ghost" size="lg">
                 <Link href="/#whats-inside">See What&apos;s Inside</Link>

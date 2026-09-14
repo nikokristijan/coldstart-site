@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
 import { CHECKOUT, CTA } from "@/lib/site-config";
+import { TrackedAnchor } from "@/components/tracked-link";
 
 const LINKS = [
   { href: "/#whats-inside", label: "What's Inside" },
@@ -43,7 +44,9 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <a href={CHECKOUT.coldStart}>{CTA.primaryWithPrice}</a>
+            <TrackedAnchor href={CHECKOUT.coldStart} event="cta_click" eventProps={{ location: "header" }}>
+              {CTA.primaryWithPrice}
+            </TrackedAnchor>
           </Button>
         </div>
 

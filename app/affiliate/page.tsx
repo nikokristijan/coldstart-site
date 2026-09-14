@@ -7,6 +7,7 @@ import { AffiliatePromote } from "@/components/sections/affiliate-promote";
 import { AffiliateFaq } from "@/components/sections/affiliate-faq";
 import { Reveal } from "@/components/reveal";
 import { CHECKOUT } from "@/lib/site-config";
+import { TrackedAnchor } from "@/components/tracked-link";
 
 export const metadata: Metadata = {
   title: "Cold Start Affiliate Program — Earn 50%",
@@ -34,7 +35,13 @@ export default function AffiliatePage() {
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild variant="gold" size="lg">
-                <a href={CHECKOUT.affiliateApply}>Become an Affiliate</a>
+                <TrackedAnchor
+                  href={CHECKOUT.affiliateApply}
+                  event="cta_click"
+                  eventProps={{ location: "affiliate_apply" }}
+                >
+                  Become an Affiliate
+                </TrackedAnchor>
               </Button>
               <Button asChild variant="ghost" size="lg">
                 <Link href="/">Back to Cold Start</Link>

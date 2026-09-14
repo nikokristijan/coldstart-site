@@ -21,6 +21,10 @@ const OBJECTIONS = [
     q: "“Do I need experience or a portfolio?”",
     a: "No. The Zero-Proof Offer Framework is built specifically for people starting with no portfolio or testimonials yet.",
   },
+  {
+    q: "“Can't I just use ChatGPT for this?”",
+    a: "ChatGPT can write you a message. It can't tell you who to send it to, when to follow up, how to price your offer, or what to say when someone goes quiet — that's the system. The included AI Personalization Pack is what handles the writing part.",
+  },
 ];
 
 export function Objections() {

@@ -10,6 +10,7 @@ import {
   VALUE_STACK,
   VALUE_STACK_TOTAL,
 } from "@/lib/site-config";
+import { trackEvent } from "@/lib/track";
 
 const ANCHORS = [
   {
@@ -210,7 +211,10 @@ export function Pricing() {
                   <button
                     key={key}
                     type="button"
-                    onClick={() => setPlan(key)}
+                    onClick={() => {
+                      setPlan(key);
+                      trackEvent("plan_select", { plan: key });
+                    }}
                     className={`flex-1 rounded-full px-3 py-2 text-[13px] font-medium transition-colors ${
                       plan === key
                         ? "bg-[var(--gold)] text-[var(--navy-1)]"
@@ -238,7 +242,12 @@ export function Pricing() {
               <p className="mt-2 text-[13px] text-[var(--ink-dim)]">{active.subline}</p>
 
               <Button asChild size="lg" className="mt-6 w-full">
-                <a href={active.checkout}>{active.cta}</a>
+                <a
+                  href={active.checkout}
+                  onClick={() => trackEvent("checkout_click", { location: "pricing", plan })}
+                >
+                  {active.cta}
+                </a>
               </Button>
 
               <p className="mx-auto mt-5 max-w-sm text-[13px] leading-relaxed text-[var(--ink-dim)]">
