@@ -45,18 +45,9 @@ export function FinalCta({
                 {CTA.primaryWithPrice}
               </TrackedAnchor>
             </Button>
-            <Button asChild variant="teal">
-              <TrackedAnchor
-                href={CHECKOUT.aiPack}
-                event="cta_click"
-                eventProps={{ location: "final_cta_ai_pack" }}
-              >
-                Add the AI Pack
-              </TrackedAnchor>
-            </Button>
           </div>
           <p className="mt-5 text-[12.5px] uppercase tracking-wide text-[var(--ink-dim)]">
-            Cancel anytime · Instant access · No long-term contract
+            AI Personalization Pack included · Cancel anytime · Instant access
           </p>
         </Reveal>
       </div>
