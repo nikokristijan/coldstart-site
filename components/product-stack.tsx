@@ -16,21 +16,24 @@ const CHIPS = ["Scripts", "Templates", "Playbooks", "Action Plan"];
  */
 export function ProductStack() {
   return (
-    <div className="relative mx-auto h-[360px] w-full max-w-sm select-none sm:h-[420px]" aria-hidden="true">
-      <div className="absolute right-1 top-2 w-36 -rotate-3 rounded-md border border-[var(--line)] bg-[var(--navy-2)]/80 p-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] sm:right-2 sm:top-4 sm:w-56 sm:-rotate-6 sm:p-4">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--teal)] sm:text-[10px]">
+    <div className="relative mx-auto h-[420px] w-full max-w-sm select-none" aria-hidden="true">
+      <div className="absolute right-1 top-2 w-28 -rotate-3 rounded-md border border-[var(--line)] bg-[var(--navy-2)]/80 p-2.5 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] sm:right-2 sm:top-4 sm:w-56 sm:-rotate-6 sm:p-4">
+        <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--teal)] sm:text-[10px]">
           Script Vault
         </span>
-        <p className="mt-1.5 text-[11px] leading-snug text-[var(--ink-dim)] sm:mt-2 sm:text-[12px]">
+        <p className="mt-1.5 hidden text-[12px] leading-snug text-[var(--ink-dim)] sm:block">
           20+ cold email &amp; DM scripts
         </p>
       </div>
 
-      <div className="absolute left-1 top-12 w-32 rotate-3 rounded-md border border-[var(--line)] bg-[var(--navy-2)]/80 p-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] sm:left-0 sm:top-16 sm:w-52 sm:rotate-6 sm:p-4">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--teal)] sm:text-[10px]">
+      <div className="absolute left-1 top-9 w-28 rotate-3 rounded-md border border-[var(--line)] bg-[var(--navy-2)]/80 p-2.5 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] sm:left-0 sm:top-16 sm:w-52 sm:rotate-6 sm:p-4">
+        <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--teal)] sm:hidden">
+          30-Day Plan
+        </span>
+        <span className="hidden whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--teal)] sm:inline">
           30-Day Action Plan
         </span>
-        <p className="mt-1.5 text-[11px] leading-snug text-[var(--ink-dim)] sm:mt-2 sm:text-[12px]">
+        <p className="mt-1.5 hidden text-[12px] leading-snug text-[var(--ink-dim)] sm:block">
           Day-by-day outreach schedule
         </p>
       </div>
