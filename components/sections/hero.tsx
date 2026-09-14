@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
-import { ProductStack } from "@/components/product-stack";
+import { GlobePulse } from "@/components/ui/globe-pulse";
 import { CHECKOUT, CTA } from "@/lib/site-config";
 import { TrackedAnchor } from "@/components/tracked-link";
 
@@ -70,7 +70,10 @@ export function Hero() {
         </div>
 
         <Reveal delay={0.15}>
-          <ProductStack />
+          <GlobePulse />
+          <p className="mt-4 text-center text-[11px] uppercase tracking-[0.14em] text-[var(--ink-dim)]">
+            Cold outreach works from anywhere
+          </p>
         </Reveal>
       </div>
     </section>
